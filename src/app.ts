@@ -14,6 +14,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 const mongoseUrl=process.env.MONGODB_URL as string
 app.use('/bgmi',routes)
+app.use('/',(req,res)=>{
+    return res.send("Working")
+})
 
 mongoose.connect(mongoseUrl,{
     useUnifiedTopology:true,
